@@ -17,15 +17,15 @@ class BinaryHeap:
         self.percUp(self.currentSize)
 
     def percDown(self, element):
-        while element * 2 <= self.currentSize:
-            min_child = self.minChild(element)
+        while (element * 2) <= self.currentSize:
+            min_child = self.minElement(element)
             if self.heapList[element] > self.heapList[min_child]:
                 temp = self.heapList[element]
                 self.heapList[element] = self.heapList[min_child]
                 self.heapList[min_child] = temp
             element = min_child
 
-    def minChild(self, element):
+    def minElement(self, element):
         if element * 2 + 1 > self.currentSize:
             return element * 2
         else:
@@ -34,7 +34,7 @@ class BinaryHeap:
             else:
                 return element * 2 + 1
 
-    def delMin(self):
+    def deleteMinElement(self):
         retval = self.heapList[1]
         self.heapList[1] = self.heapList[self.currentSize]
         self.currentSize = self.currentSize - 1
@@ -50,11 +50,14 @@ class BinaryHeap:
             self.percDown(elements)
             elements = elements - 1
 
+    def heapSort(self):
+        for i in range(self.currentSize):
+            print(self.deleteMinElement())
 
 bh = BinaryHeap()
-bh.buildHeap([0, 9, 5, 6, 2, 3])
-print(bh.delMin())
-print(bh.delMin())
-print(bh.delMin())
-print(bh.delMin())
-print(bh.delMin())
+bh.buildHeap([0, 9, 5, 6, 2, 3, 11, 22, 2, 3, 5, 11, 6, 87, 41, 221, 421, 12])
+bh.heapSort()
+
+
+
+
