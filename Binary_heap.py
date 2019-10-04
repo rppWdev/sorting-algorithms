@@ -55,7 +55,7 @@ class BinaryHeap:
             print(self.deleteMinElement())
 
 bh = BinaryHeap()
-bh.buildHeap([0, 9, 5, 6, 2, 3, 11, 22, 2, 3, 5, 11, 6, 87, 41, 221, 421, 12])
+bh.buildHeap([9, 5, 6, 4, 1, 7, 3, 8, 2])
 bh.heapSort()
 
 
